@@ -1,17 +1,17 @@
 <script setup lang="ts">
-import { ref, reactive } from 'vue'
-import { useAppStore } from '@/store/app';
-import { storeToRefs } from 'pinia';
+import { onMounted } from 'vue'
+import { useGamesStore } from '../stores/games';
 
-const appStore = useAppStore();
+const gamesStore = useGamesStore();
 
-const { test } = storeToRefs(appStore);
+onMounted(() => {
+  gamesStore.getGames();
+});
 </script>
 
 <template>
   <v-card width="400" class="mt-5 ml-5">
       <v-card-item>
-        {{ test }}
         <v-card-title>Welcome to the Game Picker!</v-card-title>
         <v-card-subtitle>Want to play a game but can't decide which one?</v-card-subtitle>
       </v-card-item>
@@ -22,7 +22,7 @@ const { test } = storeToRefs(appStore);
       </v-card-text>
     </v-card>
 
-    <!-- 1 - set up a simple landing page
-    2 - get pinia working
-    3 - pull in data from bgg and save to pinia store -->
+    <!-- 1 - Update data being recieved (in games.ts) to create objects of the elements actually  needed
+    2 - Display some data on screen
+    3 - Change call so that it uses a username entered -->
 </template>
