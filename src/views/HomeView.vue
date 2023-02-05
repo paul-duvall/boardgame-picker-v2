@@ -22,6 +22,12 @@ onMounted(() => {
       </v-card-text>
     </v-card>
 
+    <ul>
+      <li v-for="game in gamesStore.games">
+        {{ game.name }}
+      </li>
+    </ul>
+
     <!-- 1 - Update data being recieved (in games.ts) to create objects of the elements actually  needed
     2 - Display some data on screen
     3 - Change call so that it uses a username entered -->
