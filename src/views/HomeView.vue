@@ -1,12 +1,18 @@
 <script setup lang="ts">
-import { onMounted } from 'vue'
+import { onMounted, ref } from 'vue'
 import { useGamesStore } from '../stores/games';
 
 const gamesStore = useGamesStore();
 
-onMounted(() => {
-  gamesStore.getGames();
-});
+const username = ref('');
+
+// onMounted(() => {
+//   gamesStore.getGames(username.value);
+// });
+
+const getCollection = () => {
+  gamesStore.getGames(username.value);
+};
 </script>
 
 <template>
@@ -21,6 +27,9 @@ onMounted(() => {
       No idea what any of this nonsense is about? Click for help.
       </v-card-text>
     </v-card>
+
+    <v-text-field v-model="username" label="BGG Username" />
+    <v-btn elevation="2" @click="getCollection()">Get Collection</v-btn>
 
     <ul>
       <li v-for="game in gamesStore.games">
