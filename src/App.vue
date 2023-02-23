@@ -4,13 +4,13 @@ import { RouterLink, RouterView } from 'vue-router'
 
 <template>
   <v-app>
-    <v-app-bar color="blue-lighten-2">
-      <v-app-bar-title>Boardgame picker</v-app-bar-title>
+    <v-app-bar color="teal-lighten-2">
+      <v-app-bar-title class="app--title text-h5">Boardgame picker</v-app-bar-title>
     </v-app-bar>
     <v-main>
       <RouterView />
     </v-main>
-    <v-footer class="bg-blue-lighten-1">
+    <v-footer class="bg-teal-lighten-2">
       <v-row justify="center" no-gutters>
         <v-col class="text-center mt-4" cols="12">
         {{ new Date().getFullYear() }} — <strong>Paul Duvall</strong>
